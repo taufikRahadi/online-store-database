@@ -1,0 +1,14 @@
+{
+  "name": "online-store-database",
+  "version": "1.0.0",
+  "description": "the database service for online-store project",
+  "main": "index.js",
+  "author": "taufikRahadi <taufikrahadi1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}
