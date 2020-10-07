@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Product, {
         foreignKey: 'productId',
         as: 'product',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        onDelete: 'SET NULL',
+        onUpdate: 'SET NULL'
       })
     }
   };

@@ -10,24 +10,21 @@ module.exports = {
       },
       color: {
         type: Sequelize.STRING,
-        allowNull: false
       },
       size: {
         type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false
       },
       materials: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       productId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'Products',
           key: 'id',
-          onDelete: 'CASCADE',
-          onUpdate: 'CASCADE'
+          onDelete: 'SET NULL',
+          onUpdate: 'SET NULL'
         }
       },
       createdAt: {
