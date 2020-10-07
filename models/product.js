@@ -6,7 +6,24 @@ const { v1: uuidv1 } = require('uuid')
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
-      // define association here
+      this.belongsTo(models.ProductCategory, {
+        foreignKey: 'categoryId',
+        as: 'category',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      this.hasMany(models.ProductTag, {
+        foreignKey: 'productId',
+        as: 'tags',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      this.hasMany(models.ProductVariant, {
+        foreignKey: 'productId',
+        as: 'variants',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   };
   Product.init({
@@ -35,6 +52,10 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.TEXT
     },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Product',

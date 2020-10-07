@@ -5,7 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Tag extends Model {
     static associate(models) {
-      // define association here
+      this.hasMany(models.ProductTag, {
+        foreignKey: 'tagId',
+        as: 'products',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   };
   Tag.init({
