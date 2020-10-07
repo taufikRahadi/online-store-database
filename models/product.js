@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-const { v3: uuidv3 } = require('uuid')
+const { v4: uuidv4 } = require('uuid')
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   Product.init({
     code: {
       type: DataTypes.UUID,
-      defaultValue: uuidv3(),
+      defaultValue: uuidv4(),
       allowNull: false,
       unique: true
     },
