@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.ProductVariant, {
         foreignKey: 'productId',
         as: 'variants',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        onDelete: 'SET NULL',
+        onUpdate: 'SET NULL'
       })
     }
   };
